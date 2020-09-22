@@ -8,7 +8,8 @@ var tree, treeImage;
 var ground;
 var stone, stoneImage;
 var boyImage;
-var mango1, mango2, mangoImage;
+var mango1, mango2, mango3, mango4, mangoImage;
+var constraint;
 
 function preload()
 {
@@ -31,10 +32,14 @@ function setup() {
 
 	tree = new Tree(600, 350, 600, 700);
 
-	stone = new Stone(100, 570);
+	stone = new Stone(105, 560);
 
 	mango1 = new Mango(220, 130, 50);
-	mango2 = new Mango(200, 30, 50);
+	mango2 = new Mango(200, 1, 50);
+	mango3 = new Mango(180, 30, 50);
+	mango4 = new Mango(200, 50, 50);
+
+	constraint = new Constraint(stone.body, {x:105, y:560});
 
 	Engine.run(engine);
   
@@ -49,13 +54,16 @@ function draw() {
   
   tree.display();
 
-  image(boyImage, 50, 505, 250, 250);
+  image(boyImage, 180, 625, 250, 250);
 
   stone.display();
 
   mango1.display();
-
   mango2.display();
+  mango3.display();
+  mango4.display();
+
+  constraint.display();
   
   drawSprites();
 }
