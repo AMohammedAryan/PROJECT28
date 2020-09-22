@@ -8,7 +8,7 @@ var tree, treeImage;
 var ground;
 var stone, stoneImage;
 var boyImage;
-var mango1, mangoImage;
+var mango1, mango2, mangoImage;
 
 function preload()
 {
@@ -33,7 +33,8 @@ function setup() {
 
 	stone = new Stone(100, 570);
 
-	mango1 = new Mango(400, 400, 50);
+	mango1 = new Mango(220, 130, 50);
+	mango2 = new Mango(200, 30, 50);
 
 	Engine.run(engine);
   
@@ -52,14 +53,9 @@ function draw() {
 
   stone.display();
 
-  mango1.display()
+  mango1.display();
+
+  mango2.display();
   
   drawSprites();
 }
-
-function mouseDragged(){
-	Body.setPosition(mango1.body, {x:mouseX, y:mouseY});
-}
-
-
-
