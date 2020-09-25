@@ -14,11 +14,13 @@ class Constraint {
         World.add(world, this.constraint);
     }
 
-    display(){
+    fly(){
 
-        var posA = this.constraint.bodyA.position;
-        var posB = this.pointB;
+        this.constraint.bodyA = null;
+    }
 
-        line(posA.x, posA.y, posB.x, posB.y);
+    attach(body){
+
+        this.constraint.bodyA = body;
     }
 }
