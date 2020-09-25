@@ -60,25 +60,10 @@ function draw() {
   mango3.display();
   mango4.display();
 
-  if (detectCollision(stone.body, mango1.body)){
-
-	Body.setStatic(mango1.body, false);
-  }
-
-  if (detectCollision(stone.body, mango2.body)){
-
-	Body.setStatic(mango2.body, false);
-  }
-
-  if (detectCollision(stone.body, mango3.body)){
-
-	Body.setStatic(mango3.body, false);
-  }
-
-  if (detectCollision(stone.body, mango4.body)){
-
-	Body.setStatic(mango4.body, false);
-  }
+  detectCollision(stone.body, mango1.body);
+  detectCollision(stone.body, mango2.body);
+  detectCollision(stone.body, mango3.body);
+  detectCollision(stone.body, mango4.body);
   
   drawSprites();
 }
@@ -103,11 +88,11 @@ function keyPressed(){
 
 function detectCollision(body1, body2){
 
-    if(body1.position.x - body2.position.x <= body1.width/2 + body2.width/2 || 
-       body2.position.x - body1.position.x <= body1.width/2 + body2.width/2 ||
-       body1.position.y  - body2.position.y <= body1.height/2 + body2.height/2 ||
-       body2.position.y - body1.position.y <= body1.height/2 + body2.height/2){
+    if(body1.position.x - body2.position.x <= body1.width2 + body2.r && 
+       body2.position.x - body1.position.x <= body1.width/2 + body2.r &&
+       body1.position.y  - body2.position.y <= body1.height/2 + body2.r &&
+       body2.position.y - body1.position.y <= body1.height/2 + body2.r){
 
-        return true;
+         Body.setStatic(body2, true);
        }
 }
