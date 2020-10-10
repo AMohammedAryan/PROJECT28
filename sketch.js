@@ -88,11 +88,11 @@ function keyPressed(){
 
 function detectCollision(body1, body2){
 
-    if(body1.position.x - body2.position.x <= body1.width2 + body2.r && 
-       body2.position.x - body1.position.x <= body1.width/2 + body2.r &&
-       body1.position.y  - body2.position.y <= body1.height/2 + body2.r &&
-       body2.position.y - body1.position.y <= body1.height/2 + body2.r){
+    if(body1.position.x - body2.position.x <= body1.r/2 + body2.r && 
+       body2.position.x - body1.position.x <= body1.r/2 + body2.r &&
+       body1.position.y  - body2.position.y <= body1.r/2 + body2.r &&
+       body2.position.y - body1.position.y <= body1.r/2 + body2.r){
 
-         Body.setStatic(body2, true);
+         Body.setStatic(body2, false);
        }
 }
